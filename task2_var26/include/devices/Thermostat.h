@@ -6,8 +6,11 @@ namespace smarthome::devices
 	{
 	public:
 		void setTemperature(int value);
+		int temperature() const;
+#if 0
 		void increase();
 		void decrease();
+#endif
 	private:
 
 		int temperature_;

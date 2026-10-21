@@ -19,12 +19,19 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\commands\SetCurtainsPhaseCommand.cpp" />
+    <ClCompile Include="src\commands\SetLightCommand.cpp" />
+    <ClCompile Include="src\commands\SetTemperatureCommand.cpp" />
     <ClCompile Include="src\devices\Curtains.cpp" />
     <ClCompile Include="src\devices\Light.cpp" />
     <ClCompile Include="src\devices\Thermostat.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\commands\ICommand.h" />
+    <ClInclude Include="include\commands\SetCurtainsPhaseCommand.h" />
+    <ClInclude Include="include\commands\SetLightCommand.h" />
+    <ClInclude Include="include\commands\SetTemperatureCommand.h" />
     <ClInclude Include="include\devices\Curtains.h" />
     <ClInclude Include="include\devices\Light.h" />
     <ClInclude Include="include\devices\Thermostat.h" />

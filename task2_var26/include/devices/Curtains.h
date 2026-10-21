@@ -7,16 +7,17 @@ namespace smarthome::devices
 	{
 	public:
 
-		void close();
-		void open();
-
-	private:
-
-		enum class CurtainsPhase {
+		enum class Phase {
 			OPEN,
 			CLOSED
 		};
-		CurtainsPhase curtainsPhase_ = CurtainsPhase::OPEN;
+
+		void setPhase(Phase phase);
+		Phase getPhase() const;
+
+	private:
+
+		Phase phase_ = Phase::OPEN;
 
 	};
 }

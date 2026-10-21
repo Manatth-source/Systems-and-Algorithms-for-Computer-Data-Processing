@@ -17,6 +17,7 @@ void smarthome::devices::Thermostat::setTemperature(int value)
 }
 
 
+#if 0
 void smarthome::devices::Thermostat::increase()
 {
 	int step = 1;
@@ -27,4 +28,11 @@ void smarthome::devices::Thermostat::increase()
 void smarthome::devices::Thermostat::decrease() {
 	int step = -1;
 	setTemperature(temperature_ + step);
+}
+#endif
+
+
+int smarthome::devices::Thermostat::temperature() const
+{
+	return temperature_;
 }

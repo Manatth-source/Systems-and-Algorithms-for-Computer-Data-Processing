@@ -17,7 +17,7 @@ void smarthome::devices::Light::setBrightness(int value)
 
 }
 
-
+#if 0
 void smarthome::devices::Light::increase()
 {
 	int step = 5;
@@ -30,10 +30,9 @@ void smarthome::devices::Light::decrease()
 	int step = -5;
 	setBrightness(brightness_ + step);
 }
+#endif
 
 
-#if 0
 int smarthome::devices::Light::brightness() const {
 	return brightness_;
 }
-#endif
