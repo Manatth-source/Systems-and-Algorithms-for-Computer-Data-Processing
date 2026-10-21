@@ -92,3 +92,6 @@ Computer.46ecf1e9/
 *.csv 
 ~$*.xlsx       
 ~$*.xls
+
+# Text files
+*.txt
