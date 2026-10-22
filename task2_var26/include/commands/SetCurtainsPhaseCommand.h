@@ -5,7 +5,7 @@
 
 namespace smarthome::command
 {
-	class SetCurtainsPhaseCommand : ICommand
+	class SetCurtainsPhaseCommand : public ICommand
 	{
 	public:
 		SetCurtainsPhaseCommand(devices::Curtains& curtains, devices::Curtains::Phase target);

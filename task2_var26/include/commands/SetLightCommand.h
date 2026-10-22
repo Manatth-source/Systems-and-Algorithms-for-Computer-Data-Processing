@@ -5,7 +5,7 @@
 
 namespace smarthome::command
 {
-	class SetLightCommand : ICommand
+	class SetLightCommand : public ICommand
 	{
 	public:
 		SetLightCommand(devices::Light& light, int target);

@@ -17,6 +17,6 @@ void smarthome::command::Scenario::execute()
 
 void smarthome::command::Scenario::undo()
 {
-	for (auto& step : steps_)
-		step->undo();
+	for (auto it = steps_.rbegin(); it != steps_.rend(); ++it)
+		(*it)->undo();
 }

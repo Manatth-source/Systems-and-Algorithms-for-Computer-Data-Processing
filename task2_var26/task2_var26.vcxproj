@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\commands\Scenario.cpp" />
     <ClCompile Include="src\commands\SetCurtainsPhaseCommand.cpp" />
     <ClCompile Include="src\commands\SetLightCommand.cpp" />
     <ClCompile Include="src\commands\SetTemperatureCommand.cpp" />
@@ -29,6 +30,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\commands\ICommand.h" />
+    <ClInclude Include="include\commands\Scenario.h" />
     <ClInclude Include="include\commands\SetCurtainsPhaseCommand.h" />
     <ClInclude Include="include\commands\SetLightCommand.h" />
     <ClInclude Include="include\commands\SetTemperatureCommand.h" />

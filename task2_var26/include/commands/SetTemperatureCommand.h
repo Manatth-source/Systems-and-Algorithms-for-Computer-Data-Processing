@@ -5,7 +5,7 @@
 
 namespace smarthome::command
 {
-	class SetTemperatureCommand : ICommand
+	class SetTemperatureCommand : public ICommand
 	{
 	public:
 		SetTemperatureCommand(devices::Thermostat& thermostat, int target);
