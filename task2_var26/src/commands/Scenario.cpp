@@ -1,0 +1,22 @@
+#include "commands/Scenario.h"
+
+
+
+void smarthome::command::Scenario::add(std::shared_ptr<ICommand> command) 
+{
+	steps_.push_back(command);
+}
+
+
+void smarthome::command::Scenario::execute()
+{
+	for (auto& step : steps_)
+		step->execute();
+}
+
+
+void smarthome::command::Scenario::undo()
+{
+	for (auto& step : steps_)
+		step->undo();
+}
