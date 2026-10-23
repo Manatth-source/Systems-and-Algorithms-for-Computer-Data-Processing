@@ -26,7 +26,9 @@
     <ClCompile Include="src\devices\Curtains.cpp" />
     <ClCompile Include="src\devices\Light.cpp" />
     <ClCompile Include="src\devices\Thermostat.cpp" />
+    <ClCompile Include="src\home\History.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\remote\RemoteControl.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\commands\ICommand.h" />
@@ -37,6 +39,8 @@
     <ClInclude Include="include\devices\Curtains.h" />
     <ClInclude Include="include\devices\Light.h" />
     <ClInclude Include="include\devices\Thermostat.h" />
+    <ClInclude Include="include\home\History.h" />
+    <ClInclude Include="include\remote\RemoteControl.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>
