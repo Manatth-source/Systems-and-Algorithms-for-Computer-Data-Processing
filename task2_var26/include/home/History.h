@@ -1,20 +1,18 @@
 #pragma once
 #include "commands/ICommand.h"
-#include <iostream>
-#include <stack>
+#include <chrono>
 #include <memory>
 #include <optional>
+#include <stack>
 
 
 namespace smarthome::home
 {
-
 	struct HistoryEntry
 	{
 		std::shared_ptr<command::ICommand> command;
-		int executedAt;
+		std::chrono::system_clock::time_point executedAt;
 	};
-
 
 	class History
 	{
@@ -22,7 +20,8 @@ namespace smarthome::home
 		void push(HistoryEntry executionCommand);
 		std::optional<HistoryEntry> pop();
 		bool empty() const;
+
 	private:
-		std::stack <HistoryEntry> executionStack_;
+		std::stack<HistoryEntry> executionStack_;
 	};
 }

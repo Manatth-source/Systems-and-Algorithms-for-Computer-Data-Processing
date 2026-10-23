@@ -13,7 +13,7 @@ namespace smarthome::devices
 #endif
 	private:
 
-		int temperature_;
+		int temperature_ = 0;
 
 	};
 }

@@ -2,14 +2,14 @@
 #include <iostream>
 
 
-void smarthome::remote::RemoteComtrol::assign(size_t button, std::shared_ptr<command::ICommand> command)
+void smarthome::remote::RemoteControl::assign(size_t button, std::shared_ptr<command::ICommand> command)
 {
 	buttons_[button] = command;
 	std::cout << "REMOTE: button " << button << " assigned\n";
 }
 
 
-void smarthome::remote::RemoteComtrol::press(size_t button)
+void smarthome::remote::RemoteControl::press(size_t button)
 {
 	auto it = buttons_.find(button);
 	if (it == buttons_.end()) {

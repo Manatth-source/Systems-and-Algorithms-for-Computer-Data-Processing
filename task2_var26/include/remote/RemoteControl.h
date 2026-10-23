@@ -6,7 +6,7 @@
 
 namespace smarthome::remote
 {
-	class RemoteComtrol
+	class RemoteControl
 	{
 	public:
 		void assign(size_t button, std::shared_ptr<command::ICommand> command);

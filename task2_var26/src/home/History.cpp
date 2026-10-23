@@ -19,5 +19,5 @@ std::optional<smarthome::home::HistoryEntry> smarthome::home::History::pop()
 
 void smarthome::home::History::push(HistoryEntry executionCommand)
 {
-	executionStack_.push(executionCommand);
+	executionStack_.push(std::move(executionCommand));
 }
