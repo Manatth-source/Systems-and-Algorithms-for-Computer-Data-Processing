@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="src\commands\RecordToHistoryCommand.cpp" />
     <ClCompile Include="src\commands\Scenario.cpp" />
+    <ClCompile Include="src\commands\SchedulerCommand.cpp" />
     <ClCompile Include="src\commands\SetCurtainsPhaseCommand.cpp" />
     <ClCompile Include="src\commands\SetLightCommand.cpp" />
     <ClCompile Include="src\commands\SetTemperatureCommand.cpp" />
@@ -29,6 +30,7 @@
     <ClCompile Include="src\devices\Light.cpp" />
     <ClCompile Include="src\devices\Thermostat.cpp" />
     <ClCompile Include="src\home\History.cpp" />
+    <ClCompile Include="src\home\Scheduler.cpp" />
     <ClCompile Include="src\home\SmartHome.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\remote\RemoteControl.cpp" />
@@ -37,6 +39,7 @@
     <ClInclude Include="include\commands\ICommand.h" />
     <ClInclude Include="include\commands\RecordToHistoryCommand.h" />
     <ClInclude Include="include\commands\Scenario.h" />
+    <ClInclude Include="include\commands\SchedulerCommand.h" />
     <ClInclude Include="include\commands\SetCurtainsPhaseCommand.h" />
     <ClInclude Include="include\commands\SetLightCommand.h" />
     <ClInclude Include="include\commands\SetTemperatureCommand.h" />
@@ -45,9 +48,12 @@
     <ClInclude Include="include\devices\Light.h" />
     <ClInclude Include="include\devices\Thermostat.h" />
     <ClInclude Include="include\home\History.h" />
+    <ClInclude Include="include\home\IClock.h" />
     <ClInclude Include="include\home\IHistoryRecorder.h" />
     <ClInclude Include="include\home\IUndoService.h" />
+    <ClInclude Include="include\home\Scheduler.h" />
     <ClInclude Include="include\home\SmartHome.h" />
+    <ClInclude Include="include\home\TimeFormat.h" />
     <ClInclude Include="include\remote\RemoteControl.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

@@ -13,7 +13,7 @@ void smarthome::devices::Thermostat::setTemperature(int value)
 {
 	const int old = temperature_;
 	temperature_ = std::clamp(value, TMIN, TMAX);
-	std::cout << "THERMOSTAT: temperature " << old << "°С -> " << temperature_ << "°C\n";
+	std::cout << "THERMOSTAT: temperature " << old << "C -> " << temperature_ << "C\n";
 }
 
 

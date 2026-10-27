@@ -1,5 +1,6 @@
 #pragma once
 #include "commands/ICommand.h"
+#include "home/IClock.h"
 #include <chrono>
 #include <memory>
 #include <optional>
@@ -11,7 +12,7 @@ namespace smarthome::home
 	struct HistoryEntry
 	{
 		std::shared_ptr<command::ICommand> command;
-		std::chrono::system_clock::time_point executedAt;
+		time::TimePoint executedAt;
 	};
 
 	class History
