@@ -72,6 +72,13 @@ namespace MyHeap
 			return old;
 		}
 
+
+		bool empty()
+		{
+			return data_.empty();
+		}
+
+
 	private:
 		std::vector<T> data_;
 		Compare before_;
