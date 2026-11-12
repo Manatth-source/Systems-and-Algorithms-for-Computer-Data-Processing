@@ -39,7 +39,7 @@ namespace MyHeap
 		}
 
 
-		std::size_t size()
+		std::size_t size() const
 		{
 			return data_.size();
 		}
@@ -94,11 +94,13 @@ namespace MyHeap
 
 		void descend(std::size_t i)
 		{
+			const std::size_t n = data_.size();
 			while (true) {
 				std::size_t best = i;
 				std::size_t l = left(i), r = right(i);
-				if (before_(data_[left], data_[i])) best = l;
-				else if (before_(data_[right], data_[i])) best = r;
+
+				if (l < n && before_(data_[l], data_[best])) best = l;
+				if (r < n && before_(data_[r], data_[best])) best = r;
 
 				if (best == i) break;
 				std::swap(data_[i], data_[best]);
@@ -109,13 +111,13 @@ namespace MyHeap
 
 		std::size_t left(std::size_t i)
 		{
-			return std::min(2 * i + 1, data_.size() - 1);
+			return 2 * i + 1;
 		}
 
 
 		std::size_t right(std::size_t i)
 		{
-			return std::min(2 * i + 2, data_.size() - 1);
+			return 2 * i + 2;
 		}
 
 
