@@ -73,9 +73,17 @@ namespace MyHeap
 		}
 
 
-		bool empty()
+		bool empty() const
 		{
 			return data_.empty();
+		}
+
+
+		bool isValid() const
+		{
+			for (std::size_t i = 1; i < data_.size(); ++i)
+				if (before_(data_[i], data_[parent(i)])) return false;
+			return true;
 		}
 
 
@@ -116,19 +124,19 @@ namespace MyHeap
 		}
 
 
-		std::size_t left(std::size_t i)
+		std::size_t left(std::size_t i) const
 		{
 			return 2 * i + 1;
 		}
 
 
-		std::size_t right(std::size_t i)
+		std::size_t right(std::size_t i) const
 		{
 			return 2 * i + 2;
 		}
 
 
-		std::size_t parent(std::size_t i)
+		std::size_t parent(std::size_t i) const
 		{
 			return std::max(static_cast<std::size_t>(0), (i - 1) / 2);
 		}

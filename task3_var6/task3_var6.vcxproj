@@ -22,6 +22,7 @@
     <ClCompile Include="src\heap.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\scheduler.cpp" />
+    <ClCompile Include="tests\test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>

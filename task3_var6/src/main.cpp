@@ -3,11 +3,16 @@
 #include <string>
 #include <Windows.h>
 
+int runAllTests();
 
-int main(void)
+
+int main(int argc, char** argv)
 {
 	SetConsoleOutputCP(CP_UTF8);
 	SetConsoleCP(CP_UTF8);
+
+	if (argc > 1 && std::string(argv[1]) == "--test")
+		return runAllTests();
 	
 	scheduler::Scheduler sch;
 	std::string command;
@@ -43,5 +48,6 @@ int main(void)
 			std::cout << "\n";
 		}
 	}
+
 	return 0;
 }

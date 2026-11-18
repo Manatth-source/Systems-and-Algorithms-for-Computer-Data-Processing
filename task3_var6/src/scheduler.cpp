@@ -36,6 +36,19 @@ namespace scheduler
 	class Scheduler
 	{
 	public:
+
+		std::size_t heapSize() const 
+		{ 
+			return heap_.size();
+		}
+
+
+		std::size_t activeCount() const 
+		{ 
+			return active_.size();
+		}
+
+
 		void set(Id id, Time at)
 		{
 			++orderTask_;
