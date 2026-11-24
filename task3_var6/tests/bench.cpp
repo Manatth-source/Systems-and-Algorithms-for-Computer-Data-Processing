@@ -113,6 +113,22 @@ static uint64_t g_overhead = 0;     // стоимость самой пары rd
 // поэтому не может выкинуть вычисление результата как "неиспользуемое"
 static volatile long long g_sink = 0;
 
+static inline uint64_t ticksBegin()
+{
+	_mm_lfence();               // дождаться всего, что было до
+	uint64_t t = __rdtsc();
+	_mm_lfence();               // не начинать замеряемое, пока не прочитан счётчик
+	return t;
+}
+
+static inline uint64_t ticksEnd()
+{
+	_mm_lfence();               // дождаться завершения замеряемого вызова
+	uint64_t t = __rdtsc();
+	_mm_lfence();
+	return t;
+}
+
 struct Ticks { double set = 0, cancel = 0, advance = 0; };   // суммарные тики по методам
 
 template <class S>
@@ -125,23 +141,23 @@ static Ticks runOnce(const std::vector<Cmd>& cmds)
 		switch (c.type)
 		{
 		case SET: {
-			uint64_t a = __rdtsc();
+			uint64_t a = ticksBegin();
 			s.set(c.id, c.arg);
-			uint64_t b = __rdtsc();
+			uint64_t b = ticksEnd();
 			tSet += b - a - g_overhead;
 			break;
 		}
 		case CANCEL: {
-			uint64_t a = __rdtsc();
+			uint64_t a = ticksBegin();
 			s.cancel(c.id);
-			uint64_t b = __rdtsc();
+			uint64_t b = ticksEnd();
 			tCancel += b - a - g_overhead;
 			break;
 		}
 		case ADVANCE: {
-			uint64_t a = __rdtsc();
+			uint64_t a = ticksBegin();
 			auto fired = s.advance(c.arg);
-			uint64_t b = __rdtsc();
+			uint64_t b = ticksEnd();
 			tAdv += b - a - g_overhead;
 			for (const auto& t : fired)
 				sink += static_cast<uint64_t>(t.id) * 31 + static_cast<uint64_t>(t.state.at);
@@ -215,13 +231,13 @@ static void printCsvRow(const char* scenario, std::size_t n, const char* impl, c
 // Вызывается из main.cpp по ключу --bench [maxN] [csv]
 int runBench(std::size_t maxN, bool csv)
 {
-	const int REPS = 7;
+	const int REPS = 25;
 	const std::size_t MIN_N = 1024;
 
 	// накладные расходы самого замера (пара rdtsc подряд), в тиках
 	{
 		uint64_t best = ~0ull;
-		for (int i = 0; i < 100000; ++i) { uint64_t a = __rdtsc(); uint64_t b = __rdtsc(); best = std::min(best, b - a); }
+		for (int i = 0; i < 100000; ++i) { uint64_t a = ticksBegin(); uint64_t b = ticksEnd(); best = std::min(best, b - a); }
 		g_overhead = best;
 	}
 
