@@ -4,6 +4,7 @@
 #include <Windows.h>
 
 int runAllTests();
+int runBench(std::size_t maxN, bool csv);
 
 
 int main(int argc, char** argv)
@@ -13,7 +14,11 @@ int main(int argc, char** argv)
 
 	if (argc > 1 && std::string(argv[1]) == "--test")
 		return runAllTests();
-	
+
+	if (argc > 1 && std::string(argv[1]) == "--bench")
+		return runBench(argc > 2 ? std::stoull(argv[2]) : 32768,
+			argc > 3 && std::string(argv[3]) == "csv");
+
 	scheduler::Scheduler sch;
 	std::string command;
 
